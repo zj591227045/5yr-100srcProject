@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Logo](https://via.placeholder.com/150)
+![Logo](https://pic.rmb.bdstatic.com/bjh/3ea3bab14f8/241121/535220189830195c6128aa4b14206a4b.jpeg)
 
 **探索、创新、分享 | Explore, Innovate, Share**
 
