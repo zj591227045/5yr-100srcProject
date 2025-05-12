@@ -37,7 +37,7 @@
 
 ### 📊 当前进展
 
-目前已完成 **3** 个项目，进度：3/100 (3%)
+目前已完成 **5** 个项目，进度：5/100 (5%)
 
 #### 已完成项目列表
 
@@ -45,7 +45,9 @@
 |-----|---------|---------|---------|---------|
 | 1 | AI-Debate | 基于AI模型的辩论平台，支持角色定制、实时评分和多种辩论格式 | 2025年3月 | [GitHub](https://github.com/zj591227045/Ai-Debate) |
 | 2 | DeepStressModel | AI模型压力测试工具，评估模型性能和稳定性 | 2025年3月 | [GitHub](https://github.com/zj591227045/DeepStressModel) |
-| 3 | astrbot_plugin_Merge_WeMSG | 适用于AstrBot的微信聊天消息合并插件 | 2025年3月 | [GitHub](https://github.com/zj591227045/astrbot_plugin_Merge_WeMSG) |
+| 3 | astrbot_plugin_Merge_WeMSG | 适用于AstrBot的微信聊天消息合并插件 | 2025年4月 | [GitHub](https://github.com/zj591227045/astrbot_plugin_Merge_WeMSG) |
+| 4 | WXAUTO-MGT | 微信自动化管理系统，提供微信机器人管理和监控功能 | 2025年5月 | [GitHub](https://github.com/zj591227045/WXAUTO-MGT) |
+| 5 | WXAUTO-HTTP-API | 微信自动化HTTP API接口，支持远程调用微信功能 | 2025年5月 | [GitHub](https://github.com/zj591227045/WXAUTO-HTTP-API) |
 
 ### 📅 下一步计划
 
@@ -95,7 +97,7 @@ This is an ambitious personal challenge: completing 100 open source projects in 
 
 ### 📊 Current Progress
 
-Currently completed **3** projects, progress: 3/100 (3%)
+Currently completed **5** projects, progress: 5/100 (5%)
 
 #### Completed Projects
 
@@ -103,7 +105,9 @@ Currently completed **3** projects, progress: 3/100 (3%)
 |-----|-------------|-------------|--------------|------------|
 | 1 | AI-Debate | AI model-based debate platform supporting character customization, real-time scoring, and multiple debate formats | March 2025 | [GitHub](https://github.com/zj591227045/Ai-Debate) |
 | 2 | DeepStressModel | AI model stress testing tool for evaluating model performance and stability | March 2025 | [GitHub](https://github.com/zj591227045/DeepStressModel) |
-| 3 | astrbot_plugin_Merge_WeMSG | Chat message merging plugin | March 2025 | [GitHub](https://github.com/zj591227045/astrbot_plugin_Merge_WeMSG) |
+| 3 | astrbot_plugin_Merge_WeMSG | Chat message merging plugin for AstrBot | April 2025 | [GitHub](https://github.com/zj591227045/astrbot_plugin_Merge_WeMSG) |
+| 4 | WXAUTO-MGT | WeChat automation management system providing robot management and monitoring functions | May 2025 | [GitHub](https://github.com/zj591227045/WXAUTO-MGT) |
+| 5 | WXAUTO-HTTP-API | WeChat automation HTTP API interface supporting remote WeChat functionality | May 2025 | [GitHub](https://github.com/zj591227045/WXAUTO-HTTP-API) |
 
 ### 📅 Next Steps
 
@@ -130,4 +134,4 @@ Below are some project ideas in the planning stage. Community discussions and co
 You're welcome to participate in this challenge by:
 - Submitting issues or pull requests to existing projects
 - Suggesting ideas for new projects
-- Sharing this challenge to help expand its influence 
+- Sharing this challenge to help expand its influence
