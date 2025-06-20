@@ -37,17 +37,84 @@
 
 ### 📊 当前进展
 
-目前已完成 **5** 个项目，进度：5/100 (5%)
+目前已完成 **8** 个项目，进度：8/100 (8%)
 
 #### 已完成项目列表
 
-| 序号 | 项目名称 | 用途描述 | 发布时间 | 仓库链接 |
-|-----|---------|---------|---------|---------|
-| 1 | AI-Debate | 基于AI模型的辩论平台，支持角色定制、实时评分和多种辩论格式 | 2025年3月 | [GitHub](https://github.com/zj591227045/Ai-Debate) |
-| 2 | DeepStressModel | AI模型压力测试工具，评估模型性能和稳定性 | 2025年3月 | [GitHub](https://github.com/zj591227045/DeepStressModel) |
-| 3 | astrbot_plugin_Merge_WeMSG | 适用于AstrBot的微信聊天消息合并插件 | 2025年4月 | [GitHub](https://github.com/zj591227045/astrbot_plugin_Merge_WeMSG) |
-| 4 | WXAUTO-MGT | 微信自动化管理系统，提供微信机器人管理和监控功能 | 2025年5月 | [GitHub](https://github.com/zj591227045/WXAUTO-MGT) |
-| 5 | WXAUTO-HTTP-API | 微信自动化HTTP API接口，支持远程调用微信功能 | 2025年5月 | [GitHub](https://github.com/zj591227045/WXAUTO-HTTP-API) |
+<table>
+<tr>
+<td width="50%">
+
+**1. AI-Debate** 
+- **描述**: 基于AI模型的辩论平台，支持角色定制、实时评分和多种辩论格式
+- **发布**: 2025年3月
+- **链接**: [GitHub](https://github.com/zj591227045/Ai-Debate) ![Stars](https://img.shields.io/github/stars/zj591227045/Ai-Debate?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/Ai-Debate?style=flat-square)
+
+</td>
+<td width="50%">
+
+**2. DeepStressModel**
+- **描述**: AI模型压力测试工具，评估模型性能和稳定性
+- **发布**: 2025年3月
+- **链接**: [GitHub](https://github.com/zj591227045/DeepStressModel) ![Stars](https://img.shields.io/github/stars/zj591227045/DeepStressModel?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/DeepStressModel?style=flat-square)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**3. astrbot_plugin_Merge_WeMSG**
+- **描述**: 适用于AstrBot的微信聊天消息合并插件
+- **发布**: 2025年4月
+- **链接**: [GitHub](https://github.com/zj591227045/astrbot_plugin_Merge_WeMSG) ![Stars](https://img.shields.io/github/stars/zj591227045/astrbot_plugin_Merge_WeMSG?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/astrbot_plugin_Merge_WeMSG?style=flat-square)
+
+</td>
+<td>
+
+**4. WXAUTO-MGT**
+- **描述**: 微信自动化管理系统，提供微信机器人管理和监控功能
+- **发布**: 2025年5月
+- **链接**: [GitHub](https://github.com/zj591227045/WXAUTO-MGT) ![Stars](https://img.shields.io/github/stars/zj591227045/WXAUTO-MGT?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/WXAUTO-MGT?style=flat-square)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**5. WXAUTO-HTTP-API**
+- **描述**: 微信自动化HTTP API接口，支持远程调用微信功能
+- **发布**: 2025年5月
+- **链接**: [GitHub](https://github.com/zj591227045/WXAUTO-HTTP-API) ![Stars](https://img.shields.io/github/stars/zj591227045/WXAUTO-HTTP-API?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/WXAUTO-HTTP-API?style=flat-square)
+
+</td>
+<td>
+
+**6. 只为记账**
+- **描述**: 简洁高效的个人记账应用，支持多账户管理和数据分析
+- **发布**: 2025年6月
+- **链接**: [GitHub](https://github.com/zj591227045/zhiweijz) ![Stars](https://img.shields.io/github/stars/zj591227045/zhiweijz?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/zhiweijz?style=flat-square)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**7. 只为记账-微信助手**
+- **描述**: 只为记账应用的微信机器人助手，支持语音记账和智能分类
+- **发布**: 2025年6月
+- **链接**: [GitHub](https://github.com/zj591227045/wxauto4zhiweijz) ![Stars](https://img.shields.io/github/stars/zj591227045/wxauto4zhiweijz?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/wxauto4zhiweijz?style=flat-square)
+
+</td>
+<td>
+
+**8. 智能导入工具**
+- **描述**: 只为记账的智能数据导入工具，支持多种格式转换和智能识别
+- **发布**: 2025年6月
+- **链接**: [GitHub](https://github.com/zj591227045/zhiweijz_import_records) ![Stars](https://img.shields.io/github/stars/zj591227045/zhiweijz_import_records?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/zhiweijz_import_records?style=flat-square)
+
+</td>
+</tr>
+</table>
 
 ### 📅 下一步计划
 
@@ -97,17 +164,84 @@ This is an ambitious personal challenge: completing 100 open source projects in 
 
 ### 📊 Current Progress
 
-Currently completed **5** projects, progress: 5/100 (5%)
+Currently completed **8** projects, progress: 8/100 (8%)
 
 #### Completed Projects
 
-| No. | Project Name | Description | Release Date | Repository |
-|-----|-------------|-------------|--------------|------------|
-| 1 | AI-Debate | AI model-based debate platform supporting character customization, real-time scoring, and multiple debate formats | March 2025 | [GitHub](https://github.com/zj591227045/Ai-Debate) |
-| 2 | DeepStressModel | AI model stress testing tool for evaluating model performance and stability | March 2025 | [GitHub](https://github.com/zj591227045/DeepStressModel) |
-| 3 | astrbot_plugin_Merge_WeMSG | Chat message merging plugin for AstrBot | April 2025 | [GitHub](https://github.com/zj591227045/astrbot_plugin_Merge_WeMSG) |
-| 4 | WXAUTO-MGT | WeChat automation management system providing robot management and monitoring functions | May 2025 | [GitHub](https://github.com/zj591227045/WXAUTO-MGT) |
-| 5 | WXAUTO-HTTP-API | WeChat automation HTTP API interface supporting remote WeChat functionality | May 2025 | [GitHub](https://github.com/zj591227045/WXAUTO-HTTP-API) |
+<table>
+<tr>
+<td width="50%">
+
+**1. AI-Debate** 
+- **Description**: AI model-based debate platform supporting character customization, real-time scoring, and multiple debate formats
+- **Release**: March 2025
+- **Link**: [GitHub](https://github.com/zj591227045/Ai-Debate) ![Stars](https://img.shields.io/github/stars/zj591227045/Ai-Debate?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/Ai-Debate?style=flat-square)
+
+</td>
+<td width="50%">
+
+**2. DeepStressModel**
+- **Description**: AI model stress testing tool for evaluating model performance and stability
+- **Release**: March 2025
+- **Link**: [GitHub](https://github.com/zj591227045/DeepStressModel) ![Stars](https://img.shields.io/github/stars/zj591227045/DeepStressModel?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/DeepStressModel?style=flat-square)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**3. astrbot_plugin_Merge_WeMSG**
+- **Description**: Chat message merging plugin for AstrBot
+- **Release**: April 2025
+- **Link**: [GitHub](https://github.com/zj591227045/astrbot_plugin_Merge_WeMSG) ![Stars](https://img.shields.io/github/stars/zj591227045/astrbot_plugin_Merge_WeMSG?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/astrbot_plugin_Merge_WeMSG?style=flat-square)
+
+</td>
+<td>
+
+**4. WXAUTO-MGT**
+- **Description**: WeChat automation management system providing robot management and monitoring functions
+- **Release**: May 2025
+- **Link**: [GitHub](https://github.com/zj591227045/WXAUTO-MGT) ![Stars](https://img.shields.io/github/stars/zj591227045/WXAUTO-MGT?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/WXAUTO-MGT?style=flat-square)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**5. WXAUTO-HTTP-API**
+- **Description**: WeChat automation HTTP API interface supporting remote WeChat functionality
+- **Release**: May 2025
+- **Link**: [GitHub](https://github.com/zj591227045/WXAUTO-HTTP-API) ![Stars](https://img.shields.io/github/stars/zj591227045/WXAUTO-HTTP-API?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/WXAUTO-HTTP-API?style=flat-square)
+
+</td>
+<td>
+
+**6. Only for Accounting (只为记账)**
+- **Description**: Simple and efficient personal accounting app with multi-account management and data analysis
+- **Release**: June 2025
+- **Link**: [GitHub](https://github.com/zj591227045/zhiweijz) ![Stars](https://img.shields.io/github/stars/zj591227045/zhiweijz?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/zhiweijz?style=flat-square)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**7. WeChat Assistant for Accounting**
+- **Description**: WeChat bot assistant for Only for Accounting app, supporting voice recording and intelligent categorization
+- **Release**: June 2025
+- **Link**: [GitHub](https://github.com/zj591227045/wxauto4zhiweijz) ![Stars](https://img.shields.io/github/stars/zj591227045/wxauto4zhiweijz?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/wxauto4zhiweijz?style=flat-square)
+
+</td>
+<td>
+
+**8. Smart Import Tool**
+- **Description**: Intelligent data import tool for Only for Accounting, supporting multiple format conversion and smart recognition
+- **Release**: June 2025
+- **Link**: [GitHub](https://github.com/zj591227045/zhiweijz_import_records) ![Stars](https://img.shields.io/github/stars/zj591227045/zhiweijz_import_records?style=flat-square) ![Forks](https://img.shields.io/github/forks/zj591227045/zhiweijz_import_records?style=flat-square)
+
+</td>
+</tr>
+</table>
 
 ### 📅 Next Steps
 
