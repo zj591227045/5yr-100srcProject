@@ -1,4 +1,4 @@
-# 3年100个开源项目挑战 | 3-Year 100 Open Source Projects Challenge
+# 5年100个开源项目挑战 | 5-Year 100 Open Source Projects Challenge
 
 <div align="center">
 
@@ -22,7 +22,7 @@
 
 ### 📜 项目介绍
 
-这是一个雄心勃勃的个人挑战：在3年内完成100个开源项目。从2025年3月开始，我将定期发布新的开源项目，涵盖人工智能、数据分析、Web开发、移动应用等多个领域。每个项目都将秉持开源精神，为社区贡献有价值的工具和解决方案。
+这是一个雄心勃勃的个人挑战：在5年内完成100个开源项目。从2025年3月开始，我将定期发布新的开源项目，涵盖人工智能、数据分析、Web开发、移动应用等多个领域。每个项目都将秉持开源精神，为社区贡献有价值的工具和解决方案。
 
 **特别说明**：作为非专业程序员，我通过AI工具的辅助来完成所有项目的设计和开发。这不仅是一次个人挑战，也是对AI辅助编程潜力的探索。每个项目都会记录AI参与的方式和程度，分享人机协作的经验和心得。
 
@@ -149,7 +149,7 @@
 
 ### 📜 Project Introduction
 
-This is an ambitious personal challenge: completing 100 open source projects in 3 years. Starting from March 2025, I will regularly release new open source projects covering various fields including artificial intelligence, data analysis, web development, mobile applications, and more. Each project will uphold the spirit of open source, contributing valuable tools and solutions to the community.
+This is an ambitious personal challenge: completing 100 open source projects in 5 years. Starting from March 2025, I will regularly release new open source projects covering various fields including artificial intelligence, data analysis, web development, mobile applications, and more. Each project will uphold the spirit of open source, contributing valuable tools and solutions to the community.
 
 **Special Note**: As a non-professional programmer, I complete all projects with the assistance of AI tools. This is not only a personal challenge but also an exploration of the potential of AI-assisted programming. Each project will document the methods and extent of AI involvement, sharing experiences and insights from human-machine collaboration.
 
