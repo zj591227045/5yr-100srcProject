@@ -51,7 +51,6 @@ coverage.xml
 cover/
 node_modules/
 public/wxauto-mgt/node_modules/
-out/
 .next/
 
 # Translations

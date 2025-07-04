@@ -1,4 +1,8 @@
 {
   "trailingSlash": true,
-  "cleanUrls": false
+  "cleanUrls": false,
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "installCommand": "npm install"
 } 
