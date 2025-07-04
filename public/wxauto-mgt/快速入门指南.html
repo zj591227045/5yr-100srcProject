@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WXAUTO-MGT 快速入门指南</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --success-color: #059669;
+            --warning-color: #d97706;
+            --danger-color: #dc2626;
+            --light-bg: #f8fafc;
+            --dark-bg: #1e293b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .progress-bar-custom {
+            height: 4px;
+            border-radius: 2px;
+            background: #e2e8f0;
+            overflow: hidden;
+            margin: 0;
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.875rem;
+            color: var(--secondary-color);
+            min-width: 4rem;
+            text-align: right;
+        }
+
+        .step-card {
+            border: none;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .step-header {
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .step-body {
+            padding: 2rem;
+        }
+
+        .config-box {
+            background: var(--light-bg);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .platform-option {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .platform-option:hover {
+            border-color: var(--primary-color);
+            background: #f8fafc;
+        }
+
+        .platform-option.recommended {
+            border-color: var(--success-color);
+            background: #f0fdf4;
+        }
+
+        .platform-option .badge {
+            font-size: 0.75rem;
+        }
+
+        .success-indicator {
+            background: var(--success-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            margin: 0.5rem 0;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .quick-ref {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .btn-custom {
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom {
+            background: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary-custom:hover {
+            background: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-success-custom {
+            background: var(--success-color);
+            color: white;
+            border: 2px solid var(--success-color);
+        }
+
+        .btn-success-custom:hover {
+            background: transparent;
+            color: var(--success-color);
+        }
+
+        .toc {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc ul ul {
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 0.25rem 0;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .toc a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 添加新的容器样式 */
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .docs-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .step-number {
+                position: static;
+                margin: 0 auto 1rem;
+            }
+
+            .step-header {
+                text-align: center;
+            }
+
+            .toc {
+                position: relative;
+                max-height: none;
+                margin-bottom: 2rem;
+            }
+
+            .docs-content {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-robot me-2"></i>WXAUTO-MGT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">快速入门</a></li>
+                    <li class="nav-item"><a class="nav-link" href="用户操作手册.html">完整手册</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/zj591227045/WXAUTO-MGT/issues" target="_blank">技术支持</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="hero-title">
+                <i class="fas fa-rocket me-3"></i>快速入门指南
+            </h1>
+            <p class="hero-subtitle">5分钟快速配置，立即开始使用AI自动回复功能</p>
+            <div class="progress-container">
+                <div class="progress-bar-custom">
+                    <div class="progress-fill" style="width: 0%" id="progressBar"></div>
+                </div>
+                <span class="progress-text">0%</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="content-container">
+        <div class="row">
+            <!-- 目录 -->
+            <div class="col-lg-3">
+                <div class="toc">
+                    <h6><i class="fas fa-list me-2"></i>目录</h6>
+                    <ul>
+                        <li><a href="#preparation">准备工作</a></li>
+                        <li><a href="#step1">第一步：添加微信实例</a></li>
+                        <li><a href="#step2">第二步：配置AI平台</a></li>
+                        <li><a href="#step3">第三步：设置转发规则</a></li>
+                        <li><a href="#step4">第四步：测试功能</a></li>
+                        <li><a href="#step5">第五步：启用Web控制台</a></li>
+                        <li><a href="#advanced">进阶配置</a></li>
+                        <li><a href="#success">成功标志</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 主要内容 -->
+            <div class="col-lg-9">
+                <div class="docs-content">
+                    <!-- 准备工作 -->
+                    <section id="preparation" class="mb-5">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <h3><i class="fas fa-clipboard-check me-2"></i>准备工作</h3>
+                                <p class="mb-0">开始配置前，请确保满足以下条件</p>
+                            </div>
+                            <div class="step-body">
+                                <h5>必需条件</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Windows 10/11 操作系统</li>
+                                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>微信PC版已安装并登录</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>网络连接正常</li>
+                                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>至少一个AI平台账号</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <h5 class="mt-4">下载安装</h5>
+                                <ol>
+                                    <li>下载 <code>WXAUTO管理工具.exe</code> 程序文件</li>
+                                    <li>双击运行，无需安装</li>
+                                    <li>首次运行会自动创建配置文件</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 第一步 -->
+                    <section id="step1" class="mb-5">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-number">1</div>
+                                <h3>添加微信实例</h3>
+                                <p class="mb-0">预计用时：2分钟</p>
+                            </div>
+                            <div class="step-body">
+                                <h5>操作步骤</h5>
+
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-play me-2"></i>启动软件</h6>
+                                    <ul>
+                                        <li>双击 <code>WXAUTO管理工具.exe</code></li>
+                                        <li>等待主界面加载完成</li>
+                                    </ul>
+
+                                    <!-- 插入截图：软件启动界面 -->
+                                    <!-- 使用模板：基本截图模板（全尺寸） -->
+
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-plus me-2"></i>添加实例</h6>
+                                    <ul>
+                                        <li>点击"实例管理"选项卡</li>
+                                        <li>点击左侧"添加本机"按钮</li>
+                                        <li>确认配置信息（新手不建议修改）：</li>
+                                    </ul>
+                                    <div class="config-box">
+                                        实例名称：本机<br>
+                                        API地址：http://localhost:5000<br>
+                                        轮询间隔：5秒<br>
+                                        启用实例：✓ 勾选
+                                    </div>
+
+                                    <!-- 插入截图：添加实例对话框 -->
+
+                                </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-cog me-2"></i>启动微信API服务</h6>
+                                    <ul>
+                                        <li>点击工具栏"启动本地API客户端"按钮</li>
+                                        <li>等待 <code>wxauto_http_api.exe</code> 启动</li>
+                                     <!-- 使用模板：中等尺寸截图模板 -->
+                                        <li>确保微信PC版已登录</li>
+                                    </ul>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-check-circle me-2"></i>验证连接</h6>
+                                    <ul>
+                                        <li>实例卡片显示绿色表示连接成功（使用wxautox api需要使用激活码激活）</li>
+                                        <li>如显示红色，请检查微信API服务是否正常</li>
+                                    </ul>
+                                    <div class="success-indicator">
+                                        <i class="fas fa-check me-2"></i>连接成功标志：实例卡片显示绿色状态
+                                    </div>
+
+                                    <!-- 插入截图：实例连接成功状态 -->
+                                    <!-- 使用模板：中等尺寸截图模板 -->
+
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 第二步 -->
+                    <section id="step2" class="mb-5">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-number">2</div>
+                                <h3>配置AI平台</h3>
+                                <p class="mb-0">预计用时：2分钟</p>
+                            </div>
+                            <div class="step-body">
+                                <h5>推荐配置：OpenAI兼容平台</h5>
+
+                                <div class="platform-option recommended">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6><i class="fas fa-robot me-2"></i>OpenAI兼容平台 <span class="badge bg-success">推荐</span></h6>
+                                            <p class="mb-0 text-muted">支持OpenaiAPI兼容协议，支持市面上90%的AI服务商</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-plus me-2"></i>添加平台</h6>
+                                    <ul>
+                                        <li>选择刚创建的实例</li>
+                                        <li>点击中间服务平台区域的"添加平台"按钮</li>
+                                    </ul>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-edit me-2"></i>填写配置</h6>
+                                    <div class="config-box">
+                                        平台名称：AI助手（爱写啥写啥）<br>
+                                        平台类型：OpenAI<br>
+                                        API基础URL：https://api.openai.com/v1（修改为对应服务商的URL）<br>
+                                        API密钥：sk-xxxxxxxxxxxxxxxx（服务商提供的API Key）<br>
+                                        模型名称：gpt-3.5-turbo（修改为对应服务商的模型）<br>
+                                        系统提示词：你是一个有用的AI助手，请简洁友好地回答问题。<br>
+                                    </div>
+
+                                    <!-- 插入截图：OpenAI平台配置界面 -->
+                                    <!-- 使用模板：中等尺寸截图模板 -->
+
+                                </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-check-circle me-2"></i>测试连接</h6>
+                                    <ul>
+                                        <li>点击"测试连接"按钮</li>
+                                        <li>显示"连接成功"后点击"确定"</li>
+                                    </ul>
+                                </div>
+
+                                <h5 class="mt-4">其他平台快速配置</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="platform-option">
+                                            <h6><i class="fas fa-magic me-2"></i>Dify平台</h6>
+                                            <div class="config-box small">
+                                                平台名称：Dify助手<br>
+                                                平台类型：Dify<br>
+                                                API Base URL：https://api.dify.ai/v1<br>
+                                                API密钥：app-xxxxxxxxxxxxxxxx
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="platform-option">
+                                            <h6><i class="fas fa-key me-2"></i>关键词匹配</h6>
+                                            <div class="config-box small">
+                                                平台名称：自动回复<br>
+                                                平台类型：关键词匹配<br>
+                                                添加规则：<br>
+                                                - 关键词：你好,hi,hello<br>
+                                                - 回复：您好！有什么可以帮助您的吗？
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 第三步 -->
+                    <section id="step3" class="mb-5">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-number">3</div>
+                                <h3>设置转发规则</h3>
+                                <p class="mb-0">预计用时：1分钟</p>
+                            </div>
+                            <div class="step-body">
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-plus me-2"></i>添加规则</h6>
+                                    <ul>
+                                        <li>在右侧"消息转发规则配置"区域点击"添加规则"按钮</li>
+                                    </ul>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-cog me-2"></i>配置规则</h6>
+                                    <div class="config-box">
+                                        规则名称：AI助手规则<br>
+                                        微信实例：本机<br>
+                                        聊天对象匹配：*（所有聊天对象）/ 测试群（指定群聊）/ 张三（指定好友）多个聊天对象之间使用逗号（英文）分隔<br>
+                                        可选：仅处理@消息（勾选后只回复@机器人的消息）<br>
+                                        可选：回复时@发送者（勾选后回复时@发送者）<br>
+                                        服务平台：AI助手<br>
+                                        优先级：10（优先级越高，越先处理）<br>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-save me-2"></i>保存规则</h6>
+                                    <ul>
+                                        <li>点击"确定"保存配置</li>
+                                    </ul>
+                                </div>
+
+                                <div class="info-box">
+                                    <h6><i class="fas fa-info-circle me-2"></i>规则说明</h6>
+                                    <ul class="mb-0">
+                                        <li><strong>聊天对象设置</strong>：
+                                            <ul>
+                                                <li>仅处理指定聊天对象的消息</li>
+                                                <li><code>*</code> = 所有聊天对象</li>
+                                                <li><code>测试群</code> = 指定群聊</li>
+                                                <li><code>张三</code> = 指定好友</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>@消息处理</strong>：
+                                            <ul>
+                                                <li>勾选"仅处理@消息"只回复@机器人的消息</li>
+                                                <li>不勾选则回复所有消息</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 第四步 -->
+                    <section id="step4" class="mb-5">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-number">4</div>
+                                <h3>测试功能</h3>
+                                <p class="mb-0">立即验证</p>
+                            </div>
+                            <div class="step-body">
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-paper-plane me-2"></i>发送测试消息</h6>
+                                    <ul>
+                                        <li>使用任意对象或者指定的聊天对象向托管的微信发送消息</li>
+                                        <li>等待AI自动回复</li>
+                                    </ul>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-list me-2"></i>查看处理日志</h6>
+                                    <ul>
+                                        <li>切换到"消息监听"选项卡</li>
+                                        <li>在下方日志区域查看处理过程</li>
+                                    </ul>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-check-double me-2"></i>验证成功标志</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="success-indicator">
+                                                <i class="fas fa-check me-2"></i>日志显示"消息处理完成"
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="success-indicator">
+                                                <i class="fas fa-check me-2"></i>微信中收到AI回复消息
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="warning-box">
+                                    <h6><i class="fas fa-exclamation-triangle me-2"></i>常见问题快速解决</h6>
+                                    <ul class="mb-0">
+                                        <li><strong>无回复</strong>：检查规则是否启用，平台连接是否正常，修改规则后建议重新启动监听服务</li>
+                                        <li><strong>监听服务重启</strong>：点击工具栏的结束监听，结束完成后再点击开始监听</li>
+                                        <li><strong>回复延迟</strong>：正常现象，AI处理需要几秒时间</li>
+                                        <li><strong>连接失败</strong>：检查API密钥和网络连接</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 第五步 -->
+                    <section id="step5" class="mb-5">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-number">5</div>
+                                <h3>启用Web控制台</h3>
+                                <p class="mb-0">可选步骤</p>
+                            </div>
+                            <div class="step-body">
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-play me-2"></i>启动服务</h6>
+                                    <ul>
+                                        <li>点击工具栏"启动服务"按钮</li>
+                                        <li>等待服务启动完成</li>
+                                    </ul>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-external-link-alt me-2"></i>打开界面</h6>
+                                    <ul>
+                                        <li>点击"打开界面"按钮</li>
+                                        <li>浏览器自动打开Web管理界面</li>
+                                    </ul>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-mobile-alt me-2"></i>移动端访问</h6>
+                                    <ul>
+                                        <li>手机浏览器输入：<code>http://电脑IP:8080</code></li>
+                                        <li>例如：<code>http://192.168.1.100:8080</code></li>
+                                        <li>如果电脑没有公网IP，可以使用花生壳等工具将电脑IP映射到公网</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 进阶配置 -->
+                    <section id="advanced" class="mb-5">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <h3><i class="fas fa-cogs me-2"></i>进阶配置</h3>
+                                <p class="mb-0">提升使用体验的高级设置</p>
+                            </div>
+                            <div class="step-body">
+                                <h5>多平台配置</h5>
+                                <p>可以同时配置多个AI平台，通过不同规则调用：</p>
+                                <div class="config-box">
+                                    规则1：工作群 → OpenAI（专业回复）<br>
+                                    规则2：朋友群 → 关键词匹配（快速回复）<br>
+                                    规则3：客服群 → Dify（业务回复）
+                                </div>
+
+                                <h5 class="mt-4">智能规则设计</h5>
+                                <div class="config-box">
+                                    优先级 0-10：重要业务规则<br>
+                                    优先级 11-50：常规聊天规则<br>
+                                    优先级 51-100：通用回复规则
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 成功标志 -->
+                    <section id="success" class="mb-5">
+                        <div class="step-card">
+                            <div class="step-header" style="background: linear-gradient(135deg, var(--success-color), #10b981);">
+                                <h3><i class="fas fa-trophy me-2"></i>成功标志</h3>
+                                <p class="mb-0">配置完成后，您应该能够看到以下状态</p>
+                            </div>
+                            <div class="step-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>微信实例显示绿色连接状态</li>
+                                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>服务平台测试连接成功</li>
+                                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>转发规则已启用</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>发送消息后收到AI自动回复</li>
+                                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>日志显示消息处理过程</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="text-center mt-4">
+                                    <div class="success-indicator" style="font-size: 1.1rem;">
+                                        <i class="fas fa-party-horn me-2"></i>恭喜！您已成功完成WXAUTO-MGT的基础配置
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 下一步 -->
+                    <section class="mb-5">
+                        <div class="quick-ref">
+                            <h4><i class="fas fa-arrow-right me-2"></i>下一步</h4>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="text-center">
+                                        <i class="fas fa-book fa-2x text-primary mb-2"></i>
+                                        <h6>深入学习</h6>
+                                        <p class="small text-muted">阅读完整的用户操作手册</p>
+                                        <a href="用户操作手册.html" class="btn btn-outline-primary btn-sm">查看手册</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="text-center">
+                                        <i class="fas fa-globe fa-2x text-success mb-2"></i>
+                                        <h6>Web控制台</h6>
+                                        <p class="small text-muted">探索Web控制台功能</p>
+                                        <a href="#step5" class="btn btn-outline-success btn-sm">了解更多</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="text-center">
+                                        <i class="fas fa-question-circle fa-2x text-warning mb-2"></i>
+                                        <h6>获取帮助</h6>
+                                        <p class="small text-muted">查看常见问题解答</p>
+                                        <a href="用户操作手册.html#常见问题" class="btn btn-outline-warning btn-sm">常见问题</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 快速参考 -->
+                    <section class="mb-5">
+                        <div class="quick-ref">
+                            <h4><i class="fas fa-bookmark me-2"></i>快速参考</h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h6>重要文件位置</h6>
+                                    <div class="config-box small">
+                                        程序文件：WXAUTO管理工具.exe<br>
+                                        配置文件：config/<br>
+                                        日志文件：logs/<br>
+                                        数据库：data/wxauto_mgt.db
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6>默认端口</h6>
+                                    <div class="config-box small">
+                                        Web控制台：8443<br>
+                                        微信API：8000
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6>快捷键</h6>
+                                    <div class="config-box small">
+                                        Ctrl+S：保存配置<br>
+                                        F5：刷新界面<br>
+                                        Ctrl+L：打开日志
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 完成提示 -->
+                    <section class="text-center mb-5">
+                        <div class="p-4" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-radius: 12px;">
+                            <i class="fas fa-party-horn fa-3x text-success mb-3"></i>
+                            <h3 class="text-success">恭喜！配置完成</h3>
+                            <p class="lead">您已成功完成WXAUTO-MGT的基础配置，现在可以享受AI自动回复带来的便利了！</p>
+                            <div class="mt-4">
+                                <a href="用户操作手册.html" class="btn btn-custom btn-success-custom me-3">
+                                    <i class="fas fa-book me-2"></i>查看完整手册
+                                </a>
+                                <a href="index.html" class="btn btn-custom btn-primary-custom">
+                                    <i class="fas fa-home me-2"></i>返回首页
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 需要帮助 -->
+                    <section class="text-center mb-5">
+                        <div class="quick-ref">
+                            <h4><i class="fas fa-life-ring me-2"></i>需要帮助？</h4>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <i class="fas fa-envelope fa-2x text-primary mb-2"></i>
+                                    <h6>技术支持邮箱</h6>
+                                    <p class="small text-muted">support@example.com</p>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <i class="fas fa-comments fa-2x text-success mb-2"></i>
+                                    <h6>用户交流群</h6>
+                                    <p class="small text-muted">123456789</p>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <i class="fas fa-globe fa-2x text-warning mb-2"></i>
+                                    <h6>在线文档</h6>
+                                    <p class="small text-muted">https://docs.example.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5><i class="fas fa-robot me-2"></i>WXAUTO-MGT</h5>
+                    <p class="text-muted">智能微信消息管理工具，让AI为您自动处理消息回复。</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <h6>快速链接</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted text-decoration-none">首页</a></li>
+                        <li><a href="用户操作手册.html" class="text-muted text-decoration-none">操作手册</a></li>
+                        <li><a href="截图指导说明.html" class="text-muted text-decoration-none">截图指导</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-3">
+            <div class="text-center text-muted">
+                <p>&copy; 2025 WXAUTO-MGT. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 进度条更新
+        function updateProgress() {
+            const sections = document.querySelectorAll('section[id^="step"]');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.querySelector('.progress-text');
+            
+            // 定义每个步骤的权重和对应的进度
+            const stepProgress = {
+                'preparation': 10, // 准备工作
+                'step1': 20,      // 添加微信实例
+                'step2': 40,      // 配置AI平台
+                'step3': 60,      // 设置转发规则
+                'step4': 80,      // 测试功能
+                'step5': 100      // 启用Web控制台
+            };
+
+            // 获取当前可见的最远步骤
+            let currentProgress = 0;
+            const viewportHeight = window.innerHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const sectionId = section.id;
+                
+                // 如果部分在视口中可见，或者已经滚动过
+                if (rect.top < viewportHeight && rect.bottom > 0 || rect.top + scrollTop < scrollTop) {
+                    const stepValue = stepProgress[sectionId] || 0;
+                    if (stepValue > currentProgress) {
+                        currentProgress = stepValue;
+                    }
+                }
+            });
+
+            // 如果在准备工作部分，设置最小进度为10%
+            const preparationSection = document.getElementById('preparation');
+            if (preparationSection && preparationSection.getBoundingClientRect().top < viewportHeight) {
+                currentProgress = Math.max(10, currentProgress);
+            }
+
+            // 更新进度条
+            progressBar.style.width = currentProgress + '%';
+            progressText.textContent = currentProgress + '%';
+        }
+
+        // 滚动监听
+        window.addEventListener('scroll', updateProgress);
+        window.addEventListener('load', updateProgress);
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(37, 99, 235, 0.95)';
+            } else {
+                navbar.style.backgroundColor = '';
+            }
+        });
+
+        // 步骤完成标记
+        function markStepComplete(stepNumber) {
+            const step = document.querySelector(`#step${stepNumber} .step-number`);
+            if (step) {
+                step.innerHTML = '<i class="fas fa-check"></i>';
+                step.style.background = 'var(--success-color)';
+            }
+        }
+
+        // 点击步骤卡片时标记为完成
+        document.querySelectorAll('.step-card').forEach((card, index) => {
+            card.addEventListener('click', function() {
+                const stepNumber = index + 1;
+                if (stepNumber <= 5) {
+                    markStepComplete(stepNumber);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

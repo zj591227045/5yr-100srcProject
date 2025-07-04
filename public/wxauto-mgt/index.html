@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WXAUTO-MGT 用户手册</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --success-color: #059669;
+            --warning-color: #d97706;
+            --danger-color: #dc2626;
+            --light-bg: #f8fafc;
+            --dark-bg: #1e293b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .icon-primary { background: var(--primary-color); }
+        .icon-success { background: var(--success-color); }
+        .icon-warning { background: var(--warning-color); }
+        .icon-danger { background: var(--danger-color); }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list i {
+            color: var(--success-color);
+            margin-right: 0.5rem;
+        }
+
+        .quick-start {
+            background: var(--light-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .btn-custom {
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom {
+            background: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary-custom:hover {
+            background: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline-custom:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .version-badge {
+            background: var(--success-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .platform-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .platform-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .step-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin: 0 auto 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-robot me-2"></i>WXAUTO-MGT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#overview">概述</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quick-start">快速入门</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#manuals">操作手册</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#support">技术支持</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero-section" id="overview">
+        <div class="container text-center">
+            <h1 class="hero-title">WXAUTO-MGT</h1>
+            <p class="hero-subtitle">智能微信消息管理工具 - 让AI为您自动回复消息</p>
+            <span class="version-badge">v2.0.0</span>
+            <div class="mt-4">
+                <a href="#quick-start" class="btn btn-custom btn-primary-custom me-3">
+                    <i class="fas fa-rocket me-2"></i>快速开始
+                </a>
+                <a href="用户操作手册.html" class="btn btn-custom btn-outline-custom">
+                    <i class="fas fa-book me-2"></i>完整手册
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能特性 -->
+    <section class="container mb-5">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="card-icon icon-primary mx-auto">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h5 class="card-title">智能实例管理</h5>
+                        <p class="card-text">支持多微信实例管理，实时监控连接状态，灵活配置轮询参数。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="card-icon icon-success mx-auto">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h5 class="card-title">多AI平台支持</h5>
+                        <p class="card-text">集成OpenAI、Dify、Coze等主流AI平台，支持关键词匹配和记账功能。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="card-icon icon-warning mx-auto">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h5 class="card-title">智能消息路由</h5>
+                        <p class="card-text">灵活的消息转发规则，支持优先级设置，精确匹配聊天对象。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="card-icon icon-danger mx-auto">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h5 class="card-title">Web远程管理</h5>
+                        <p class="card-text">内置Web控制台，支持PC和移动端访问，随时随地管理您的AI助手。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 支持的AI平台 -->
+    <section class="container mb-5">
+        <h2 class="text-center mb-4">支持的AI平台</h2>
+        <div class="platform-grid">
+            <div class="platform-card">
+                <div class="platform-icon icon-primary mx-auto">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h6>OpenAI</h6>
+                <small class="text-muted">ChatGPT、GPT-4等</small>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon icon-success mx-auto">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <h6>Dify</h6>
+                <small class="text-muted">企业级AI应用平台</small>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon icon-warning mx-auto">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h6>扣子(Coze)</h6>
+                <small class="text-muted">字节跳动AI平台</small>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon icon-danger mx-auto">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h6>关键词匹配</h6>
+                <small class="text-muted">本地智能回复</small>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon" style="background: #6366f1;">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h6>只为记账</h6>
+                <small class="text-muted">智能记账助手</small>
+            </div>
+            <div class="platform-card">
+                <div class="platform-icon" style="background: #6366f1;">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <h6>更多平台</h6>
+                <small class="text-muted">开发中，敬请期待</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- 快速入门 -->
+    <section class="quick-start" id="quick-start">
+        <div class="container">
+            <h2 class="text-center mb-4">
+                <i class="fas fa-rocket me-2"></i>5分钟快速入门
+            </h2>
+            <p class="text-center text-muted mb-4">按照以下步骤，快速配置您的AI自动回复助手</p>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h6>启动软件并添加实例</h6>
+                            <p class="mb-0 text-muted">双击运行程序，在实例管理中添加微信实例，配置API地址。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h6>配置AI服务平台</h6>
+                            <p class="mb-0 text-muted">选择AI平台（推荐OpenAI），填写API密钥和相关配置。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h6>设置消息转发规则</h6>
+                            <p class="mb-0 text-muted">创建转发规则，指定聊天对象和使用的AI平台。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div>
+                            <h6>测试自动回复功能</h6>
+                            <p class="mb-0 text-muted">发送测试消息，验证AI自动回复是否正常工作。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">5</div>
+                        <div>
+                            <h6>启用Web控制台</h6>
+                            <p class="mb-0 text-muted">开启Web服务，实现远程管理和移动端访问。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-3">
+                        <a href="快速入门指南.html" class="btn btn-custom btn-primary-custom">
+                            <i class="fas fa-play me-2"></i>开始配置
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 操作手册 -->
+    <section class="container mb-5" id="manuals">
+        <h2 class="text-center mb-4">操作手册</h2>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-icon icon-success mx-auto">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h5 class="card-title">快速入门指南</h5>
+                        <p class="card-text">5分钟快速配置指南，适合新用户快速上手使用。</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> 基础配置流程</li>
+                            <li><i class="fas fa-check"></i> 推荐配置方案</li>
+                            <li><i class="fas fa-check"></i> 常见问题解决</li>
+                        </ul>
+                        <a href="快速入门指南.html" class="btn btn-primary w-100 mt-3">
+                            <i class="fas fa-rocket me-2"></i>立即开始
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-icon icon-primary mx-auto">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h5 class="card-title">完整操作手册</h5>
+                        <p class="card-text">详细的功能说明和操作指导，涵盖所有功能模块。</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> 详细操作步骤</li>
+                            <li><i class="fas fa-check"></i> 高级功能说明</li>
+                            <li><i class="fas fa-check"></i> 故障排除指南</li>
+                        </ul>
+                        <a href="用户操作手册.html" class="btn btn-primary w-100 mt-3">
+                            <i class="fas fa-book me-2"></i>查看手册
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-icon icon-warning mx-auto">
+                            <i class="fas fa-github"></i>
+                        </div>
+                        <h5 class="card-title">Github提交问题</h5>
+                        <p class="card-text">任何问题都可以在Github中提交，获得社区支持。</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> 遵守社区规范</li>
+                            <li><i class="fas fa-check"></i> 提交使用问题</li>
+                            <li><i class="fas fa-check"></i> 提交功能建议</li>
+                        </ul>
+                        <a href="https://github.com/zj591227045/wxauto-mgt/issues" class="btn btn-primary w-100 mt-3">
+                            <i class="fas fa-github"></i>点击提交问题
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术支持 -->
+    <section class="container mb-5" id="support">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="mb-4">需要帮助？</h2>
+                <p class="lead text-muted mb-4">我们提供全面的技术支持，帮助您解决使用过程中遇到的任何问题。</p>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-question-circle fa-2x text-primary mb-3"></i>
+                                <h6>常见问题</h6>
+                                <p class="card-text small">查看常见问题解答</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-users fa-2x text-success mb-3"></i>
+                                <h6>用户社区</h6>
+                                <p class="card-text small">QQ群：955097147</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-life-ring fa-2x text-primary mb-3"></i>
+                                <h6>技术支持</h6>
+                                <p class="card-text small"><a href="https://github.com/zj591227045/WXAUTO-MGT/issues" target="_blank">GitHub Issues</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5><i class="fas fa-robot me-2"></i>WXAUTO-MGT</h5>
+                    <p class="text-muted">智能微信消息管理工具，让AI为您自动处理消息回复。</p>
+                    <p class="text-muted">版本：v2.0.0 | 更新时间：2025年1月</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <h6>快速链接</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="快速入门指南.html" class="text-muted text-decoration-none">快速入门</a></li>
+                        <li><a href="用户操作手册.html" class="text-muted text-decoration-none">操作手册</a></li>
+                        <li><a href="截图指导说明.html" class="text-muted text-decoration-none">截图指导</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center text-muted">
+                <p>&copy; 2025 WXAUTO-MGT. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(37, 99, 235, 0.95)';
+            } else {
+                navbar.style.backgroundColor = '';
+            }
+        });
+    </script>
+</body>
+</html>
