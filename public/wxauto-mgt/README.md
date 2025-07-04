@@ -10,6 +10,7 @@ docs/Web-Docs/
 ├── index.html                   # 主页面
 ├── quick-start-guide.html       # 快速入门页面
 ├── user-manual.html             # 完整操作手册页面
+├── download.html                # 软件下载页面
 ├── how-to-insert-screenshots.md # 截图插入指南
 └── images/                      # 截图文件夹
     ├── 01-实例初始化/
@@ -42,7 +43,13 @@ docs/Web-Docs/
 - 侧边栏导航
 - 可折叠FAQ
 
-### 4. how-to-insert-screenshots.md - 截图指导
+### 4. download.html - 软件下载
+- 最新版本信息
+- 版本更新说明
+- 国内外下载源
+- 系统要求和安装指南
+
+### 5. how-to-insert-screenshots.md - 截图指导
 - 截图要求和规范
 - 标注技巧说明
 - 推荐工具介绍

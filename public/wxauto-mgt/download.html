@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/wxauto-mgt/">
+    <title>软件下载 - WXAUTO-MGT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --success-color: #059669;
+            --warning-color: #d97706;
+            --danger-color: #dc2626;
+            --light-bg: #f8fafc;
+            --dark-bg: #1e293b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .download-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+        }
+
+        .download-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+
+        .icon-china { background: linear-gradient(135deg, #dc2626, #ef4444); }
+        .icon-global { background: linear-gradient(135deg, var(--primary-color), #3b82f6); }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list i {
+            color: var(--success-color);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .btn-download {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-download:hover {
+            background: transparent;
+            color: var(--primary-color);
+        }
+
+        .footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-robot me-2"></i>WXAUTO-MGT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quick-start-guide.html">快速入门</a></li>
+                    <li class="nav-item"><a class="nav-link" href="user-manual.html">完整手册</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="download.html">软件下载</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/zj591227045/WXAUTO-MGT/issues" target="_blank">技术支持</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold text-primary mb-3">
+                <i class="fas fa-download me-3"></i>软件下载
+            </h1>
+            <p class="lead text-muted">下载最新版本的 WXAUTO-MGT，体验智能微信消息管理</p>
+            <div class="mt-3">
+                <span class="badge bg-success fs-6 px-3 py-2">
+                    <i class="fas fa-tag me-2"></i>当前版本：v2.0.0
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- 版本介绍 -->
+        <section class="mb-5">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-primary mb-4">
+                        <i class="fas fa-star me-2"></i>版本更新说明
+                    </h2>
+                    
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="feature-list">
+                                <li>
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>全面增强稳定性</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-lock"></i>
+                                    <span>修复 HTTPS 访问支持</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-globe"></i>
+                                    <span>增加 Web 管理页面支持</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>支持一键启动本机 API 客户端</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span>支持一键添加本机实例</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="feature-list">
+                                <li>
+                                    <i class="fas fa-comments"></i>
+                                    <span>增加扣子服务平台支持</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>支持手机端进行管理</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-qrcode"></i>
+                                    <span>支持移动端Web管理页面一键重登微信、获取登录二维码</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-puzzle-piece"></i>
+                                    <span>服务平台进行插件化改造，将在下一个版本推出插件市场</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-ear-listen"></i>
+                                    <span>优化消息监听服务，支持手动添加长期监听对象</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 下载链接 -->
+        <section class="mb-5">
+            <h2 class="text-center mb-5">
+                <i class="fas fa-download me-2 text-primary"></i>选择下载源
+            </h2>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="download-card card">
+                        <div class="download-icon icon-china">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <h4 class="mb-3">国内下载</h4>
+                        <p class="text-muted mb-4">
+                            <i class="fas fa-tachometer-alt me-2"></i>
+                            推荐国内用户使用，下载速度更快
+                        </p>
+                        <div class="mb-3">
+                            <small class="text-muted">
+                                <i class="fas fa-server me-1"></i>托管于 Gitee
+                            </small>
+                        </div>
+                        <a href="https://gitee.com/jacksonzhang01/wxauto-mgt/releases/download/2.0.0/Windows_x64_2.0.0.zip" 
+                           class="btn btn-download" target="_blank">
+                            <i class="fas fa-download"></i>
+                            立即下载
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="download-card card">
+                        <div class="download-icon icon-global">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4 class="mb-3">国外下载</h4>
+                        <p class="text-muted mb-4">
+                            <i class="fas fa-globe-americas me-2"></i>
+                            适合海外用户，稳定可靠的下载源
+                        </p>
+                        <div class="mb-3">
+                            <small class="text-muted">
+                                <i class="fas fa-code-branch me-1"></i>托管于 GitHub
+                            </small>
+                        </div>
+                        <a href="https://github.com/zj591227045/WXAUTO-MGT/releases/download/2.0.0/Windows_x64_2.0.0.zip" 
+                           class="btn btn-download" target="_blank">
+                            <i class="fas fa-download"></i>
+                            立即下载
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <p class="text-muted">
+                    <i class="fas fa-info-circle me-2"></i>
+                    文件大小：约 25MB | 支持系统：Windows x64
+                </p>
+            </div>
+        </section>
+
+        <!-- 系统要求 -->
+        <section class="mb-5">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-primary mb-4">
+                        <i class="fas fa-desktop me-2"></i>系统要求与安装说明
+                    </h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="mb-3">
+                                <i class="fab fa-windows me-2 text-primary"></i>系统要求
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Windows 10 或更高版本</li>
+                                <li><i class="fas fa-check text-success me-2"></i>64位处理器</li>
+                                <li><i class="fas fa-check text-success me-2"></i>4GB 内存</li>
+                                <li><i class="fas fa-check text-success me-2"></i>500MB 可用磁盘空间</li>
+                                <li><i class="fas fa-check text-success me-2"></i>稳定的网络连接</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="mb-3">
+                                <i class="fas fa-cog me-2 text-success"></i>安装步骤
+                            </h5>
+                            <ol class="list-unstyled">
+                                <li class="mb-2"><span class="badge bg-primary me-2">1</span>下载压缩包到本地</li>
+                                <li class="mb-2"><span class="badge bg-primary me-2">2</span>解压到任意目录</li>
+                                <li class="mb-2"><span class="badge bg-primary me-2">3</span>双击运行 WXAUTO管理工具.exe</li>
+                                <li class="mb-2"><span class="badge bg-primary me-2">4</span>按照快速入门指南配置</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mt-4">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>提示：</strong>软件为绿色版本，无需安装，删除文件夹即可完全卸载。首次运行可能会被杀毒软件误报，请添加到信任列表。
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5><i class="fas fa-robot me-2"></i>WXAUTO-MGT</h5>
+                    <p class="text-muted">智能微信消息管理工具，让AI为您自动处理消息回复。</p>
+                    <p class="text-muted">版本：v2.0.0 | 更新时间：2025年1月</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <h6>快速链接</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="quick-start-guide.html" class="text-muted text-decoration-none">快速入门</a></li>
+                        <li><a href="user-manual.html" class="text-muted text-decoration-none">操作手册</a></li>
+                        <li><a href="how-to-insert-screenshots.md" class="text-muted text-decoration-none">截图指导</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center text-muted">
+                <p>&copy; 2025 WXAUTO-MGT. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(37, 99, 235, 0.95)';
+            } else {
+                navbar.style.backgroundColor = '';
+            }
+        });
+    </script>
+</body>
+</html>
