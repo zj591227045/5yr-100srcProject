@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Remove configurations that might cause issues
+  // Explicitly disable static export
+  output: undefined,
+  trailingSlash: false,
 }
 
 module.exports = nextConfig 
