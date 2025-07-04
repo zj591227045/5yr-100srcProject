@@ -16,7 +16,7 @@ interface ProjectDetailPageProps {
 }
 
 export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
-  const project = getProjectById(parseInt(params.id))
+  const project = getProjectById(params.id)
   
   if (!project) {
     notFound()
