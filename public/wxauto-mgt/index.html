@@ -206,6 +206,79 @@
             color: white;
         }
 
+        .donate-section {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 3rem 0;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donate-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23fbbf24" fill-opacity="0.1"><circle cx="30" cy="30" r="4"/></g></svg>') repeat;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .donate-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .donate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+            border: 4px solid #f3f4f6;
+            transition: all 0.3s ease;
+        }
+
+        .qr-code:hover {
+            border-color: #fbbf24;
+            transform: scale(1.05);
+        }
+
+        .donate-title {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        .coffee-icon {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2rem;
@@ -241,6 +314,7 @@
                     <li class="nav-item"><a class="nav-link" href="#manuals">操作手册</a></li>
                     <li class="nav-item"><a class="nav-link" href="download.html">软件下载</a></li>
                     <li class="nav-item"><a class="nav-link" href="#support">技术支持</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#donate">捐赠作者</a></li>
                 </ul>
             </div>
         </div>
@@ -525,6 +599,65 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 捐赠组件 -->
+    <section class="donate-section" id="donate">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="donate-title mb-3">
+                    <span class="coffee-icon">☕</span> 如果认可作者的工作，请通过以下方式请作者喝杯咖啡~ <span class="coffee-icon">☕</span>
+                </h2>
+                <p class="lead text-muted">您的支持是我们持续改进的动力！每一份捐赠都会让这个项目变得更好 💖</p>
+                <div class="mt-3">
+                    <span class="badge bg-warning text-dark fs-6 px-3 py-2">
+                        <i class="fas fa-heart me-2"></i>感谢每一位支持者
+                    </span>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="donate-card">
+                        <div class="mb-3">
+                            <i class="fab fa-alipay fa-3x" style="color: #1677ff;"></i>
+                        </div>
+                        <h5 class="mb-3">支付宝</h5>
+                        <img src="images/AliPay-WXAUTO-MGT.png" alt="支付宝收款码" class="qr-code mb-3">
+                        <p class="text-muted small">扫码支付宝转账</p>
+                        <div class="mt-2">
+                            <small class="text-success">
+                                <i class="fas fa-shield-alt me-1"></i>安全便捷
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="donate-card">
+                        <div class="mb-3">
+                            <i class="fab fa-weixin fa-3x" style="color: #07c160;"></i>
+                        </div>
+                        <h5 class="mb-3">微信支付</h5>
+                        <img src="images/WechatI-WXAUTO-MGT.png" alt="微信收款码" class="qr-code mb-3">
+                        <p class="text-muted small">扫码微信转账</p>
+                        <div class="mt-2">
+                            <small class="text-success">
+                                <i class="fas fa-mobile-alt me-1"></i>便民首选
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <p class="text-muted">
+                    <i class="fas fa-star text-warning me-2"></i>
+                    您的每一次支持都是对开源精神的最好诠释！
+                    <i class="fas fa-star text-warning ms-2"></i>
+                </p>
             </div>
         </div>
     </section>
